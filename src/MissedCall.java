@@ -6,9 +6,9 @@ public class MissedCall {
     Map<LocalDateTime, String> missedCalls = new TreeMap<>();
 
     // Добавление пропущенных вызовов
-    public void addMissedCall(String input) {
+    public void addMissedCall(String missedCall) {
         LocalDateTime timeMessageCall = LocalDateTime.now();
-        missedCalls.put(timeMessageCall, input);
+        missedCalls.put(timeMessageCall, missedCall);
     }
 
 

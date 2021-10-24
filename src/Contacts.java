@@ -7,8 +7,8 @@ public class Contacts {
     Map<String, Contact> contacts = new HashMap<>();
 
     //    Добавление контакта (имя, фамилия, номер телефона, группа контакта: работа, друзья, семья).
-    public void addContact(String input) {
-        String[] parts = input.split(" ");
+    public void addContact(String newContact) {
+        String[] parts = newContact.split(" ");
         String name = parts[0];
         String surname = parts[1];
         String phone = parts[2];
@@ -27,8 +27,8 @@ public class Contacts {
         System.out.println();
     }
 //    Удаление контакта по имени и фамилии.
-    public void deletingContact(String input, MissedCall missedCalls) {
-        String[] parts = input.split(" ");
+    public void deletingContact(String nameSurnameContact, MissedCall missedCalls) {
+        String[] parts = nameSurnameContact.split(" ");
         String name = parts[0];
         //перебор контактов
         Iterator<Map.Entry<String, Contact>> itr = contacts.entrySet().iterator();

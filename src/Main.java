@@ -18,41 +18,39 @@ public class Main {
                 while (true) {
                     //Добавление контакта (имя, фамилия, номер телефона, группа контакта: работа, друзья, семья).
                     System.out.println("Введите новый контакт в формате: Имя Фамилия Номер телефона Название группы контактов(WORK, FAMILY, FRIENDS, OTHER). Или введите 'нет'");
-                    input = scanner.nextLine();
-                    if ("нет".equals(input)) break;
-                    contacts.addContact(input);
+                    String newContact = scanner.nextLine();
+                    if ("нет".equals(newContact)) break;
+                    contacts.addContact(newContact);
                     System.out.println("Контакт добавлен");
                     System.out.println("Добавить еще один контакт? Если нет введите 'нет' ");
-                    input = scanner.nextLine();
-                    if ("нет".equals(input)) break;
+                    String theAnswerToQuestion = scanner.nextLine();
+                    if ("нет".equals(theAnswerToQuestion)) break;
                 }
                 //Вывод списка контактов
                 contacts.outputOfContacts();
                 //Удаления контактов
                 System.out.println("Желаете удалить какой либо контакт?");
-                input = scanner.nextLine();
-                if (!"нет".equals(input)) {
+                String theAnswerToQuestion = scanner.nextLine();
+                if (!"нет".equals(theAnswerToQuestion)) {
                     while (true) {
                         System.out.println("Введите контакт который желаете удалить в формате: Имя Фамилия. Или введите 'нет'");
-                        input = scanner.nextLine();
-                        if ("нет".equals(input)) break;
-                        contacts.deletingContact(input, missedCalls);
+                        String nameSurnameContact = scanner.nextLine();
+                        if ("нет".equals(nameSurnameContact)) break;
+                        contacts.deletingContact(nameSurnameContact, missedCalls);
                     }
                 }
                 //Вывод списка контактов
                 contacts.outputOfContacts();
-                input = "0";
             }
             //Добавление пропущенного вызова
             if (Integer.parseInt(input) == 2) {
                 while (true) {
                     System.out.println("Введите пропущенный вызов. Или введите 'нет'");
-                    input = scanner.nextLine();
-                    if ("нет".equals(input)) break;
-                    missedCalls.addMissedCall(input);
+                    String missedCall = scanner.nextLine();
+                    if ("нет".equals(missedCall)) break;
+                    missedCalls.addMissedCall(missedCall);
 
                 }
-                input = "0";
             }
             // Вывод пропущенных вызовов
             if (Integer.parseInt(input) == 3) {
