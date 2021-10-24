@@ -36,7 +36,7 @@ public class Main {
                         System.out.println("Введите контакт который желаете удалить в формате: Имя Фамилия. Или введите 'нет'");
                         input = scanner.nextLine();
                         if ("нет".equals(input)) break;
-                        contacts.deletingContact(input);
+                        contacts.deletingContact(input, missedCalls);
                     }
                 }
                 //Вывод списка контактов
@@ -49,15 +49,14 @@ public class Main {
                     System.out.println("Введите пропущенный вызов. Или введите 'нет'");
                     input = scanner.nextLine();
                     if ("нет".equals(input)) break;
-                    Map<String, Contact> cont = contacts.contacts;
-                    missedCalls.addMissedCall(input, cont);
+                    missedCalls.addMissedCall(input);
 
                 }
                 input = "0";
             }
             // Вывод пропущенных вызовов
             if (Integer.parseInt(input) == 3) {
-                missedCalls.output();
+                missedCalls.outputOfMissedCalls(contacts);
             }
             //Очистка пропущенных вызовов
             if (Integer.parseInt(input) == 4) {

@@ -1,7 +1,7 @@
 public class Contact {
-    protected String name;
-    protected String surname;
-    protected String phone;
+    private String name;
+    private String surname;
+    private String phone;
     private Enum group;
 
 
@@ -10,6 +10,18 @@ public class Contact {
         this.surname = surname;
         this.phone = phone;
         this.group = group;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     @Override

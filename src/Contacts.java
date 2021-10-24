@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class Contacts {
         System.out.println();
     }
 //    Удаление контакта по имени и фамилии.
-    public void deletingContact(String input) {
+    public void deletingContact(String input, MissedCall missedCalls) {
         String[] parts = input.split(" ");
         String name = parts[0];
         //перебор контактов
@@ -34,7 +35,15 @@ public class Contacts {
         while (itr.hasNext()) {
             Map.Entry<String, Contact> entry = itr.next(); //полученный контакт
             Contact contactNew = entry.getValue();
-            if (contactNew.name.equals(name)) {
+            if (contactNew.getName().equals(name)) {
+                for (Map.Entry<LocalDateTime, String> entryTreeMap : missedCalls.missedCalls.entrySet()) {
+                    String nameMassageCall = contactNew.getName() + " " + contactNew.getSurname();
+                    String value = entryTreeMap.getValue();
+                    LocalDateTime key = entryTreeMap.getKey();
+                    if (value.equals(nameMassageCall)) {
+                        missedCalls.missedCalls.put(key, contactNew.getPhone());
+                    }
+                }
                 System.out.println("найден контакт");
                 String k = entry.getKey();
                 System.out.println(contacts.remove(k));
